@@ -1,8 +1,143 @@
 <html>
 <head>
-<title>Map</title>
-</head>
+  <title>IronThronePowers map</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/leaflet.css">
+  <link rel="stylesheet" href="css/page.css">
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/markers/reach.js"></script>    
+
+<!--  <script src="js/markers.js"></script>  
+  <script src="js/markers.js"></script>  
+  <script src="js/markers.js"></script>  
+  <script src="js/markers.js"></script>  
+  <script src="js/markers.js"></scri	pt>  
+  <script src="js/markers.js"></script>  
+  <script src="js/markers.js"></script>  
+  <script src="js/markers.js"></script>  
+-->
+
+  <script>
+  </script>
+  </head> 
 <body>
-TODO: MAP
+  <div id="header_">
+    <div id="link_" onClick='window.location.href="https://reddit.com/r/stromlords"'>Stormlords</div>
+  </div>  
+  <div id="map">  </div>
+  <div id="toolbar">
+<!--
+    <button type="button" class="btn btn-block" style="background-color:#f0c61d" onClick="toggle('keep')">Toggle Keeps</button>
+	<button type="button" class="btn btn-block" style="background-color:#daed0e" onClick="toggle('village')">Toggle Villages</button>
+	<button type="button" class="btn btn-block" style="background-color:#daed0e" onClick="toggle('resource')">Toggle Resources</button>
+
+	<button id="btn-line" type="button" class="btn btn-block btn-default" data-drawing="no" style="color:#000" onClick="add_line()">Draw Line</button>
+	<button id="btn-point" type="button" class="btn btn-block btn-default" data-drawing="no" style="color:#000" onClick="add_point()">Draw point</button>
+	<button id="btn-clear" type="button" class="btn btn-block btn-default" style="color:#000" onClick="clear()">Clear drawings</button>  
+-->
+	<textarea class="form-control" id="text" style="resize:none;font-size:10px;height:50%"></textarea>
+  </div>
 </body>
+  <script src="js/init_map.js"></script>  
+  <script>
+	var polylines = []
+	var circles = []
+	var col = ""
+	var currentLine;
+	var lin = $("#btn-line")
+	var pnt = $("#btn-point")
+	var clr = $("#btn-clear")
+    var showKeeps = true;
+    var showVillages = true;
+    var showResources = true;
+	
+	function add_point(){
+		pnt.data("drawing","yes")
+		clr.prop('disabled',true)
+		lin.prop('disabled',true)
+		currentLine = L.polyline([], {color: col}).addTo(map);
+		polylines.push(currentLine);
+		map.on('click', addPoint);
+	}
+
+	
+	
+	function add_line(){
+		
+		
+		if(lin.data('drawing') == "no"){
+			
+			col = prompt("Enter Color")
+			lin.html("Stop drawing line")
+			lin.data("drawing","yes")
+			clr.prop('disabled',true)
+			pnt.prop('disabled',true)
+			currentLine = L.polyline([], {color: col}).addTo(map);
+			polylines.push(currentLine);
+			map.on('click', addToLine);
+			
+		}
+		else{
+			lin.html("Draw line")
+			lin.data("drawing","no")
+			clr.prop('disabled',false)
+			pnt.prop('disabled',false)
+			map.off('click',addToLine);	
+		}
+	}
+
+	function clear(){
+		if(confirm("Are you sure?"))
+			for(var i = 0; i < polylines.length; ++i){
+				map.removeLayer(polylines[i])
+			}	
+			for(var i = 0; i < circles.length; ++i){
+				map.removeLayer(circles[i])
+			}
+	}
+	
+	/*This function gives you Lat Long of what you click on */
+	function addToLine(e) {
+	
+		//if(confirm("ADD MARKER HERE=?")){
+		//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
+		//	var txt = prompt("Text")
+			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [32, 74]})
+			mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
+			var circle = L.circle([e.latlng.lat, e.latlng.lng],20, {color: col, fillColor:col,fillOpacity:1}).addTo(map)
+			circles.push(circle)
+			map.addLayer(mark)
+			currentLine.addLatLng(mark.getLatLng())	
+		//	$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
+
+	//	}
+
+	};
+	
+	
+	/*This function gives you Lat Long of what you click on */
+	function addPoint(e) {
+	
+		//if(confirm("ADD MARKER HERE=?")){
+		//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
+		//	var txt = prompt("Text")
+			col2 = prompt("Dot color")
+			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [32, 74]})
+			mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
+			var circle = L.circle([e.latlng.lat, e.latlng.lng],(parseFloat(prompt("Dot radius"))*10000), {color: col2, fillColor:col2,fillOpacity:0.75}).addTo(map)
+			circles.push(circle)
+		//	$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
+
+	//	}
+			lin.html("Draw line")
+			pnt.data("drawing","no")
+			clr.prop('disabled',false)
+			lin.prop('disabled',false)
+			map.off('click',addPoint);	
+	};	
+  </script>
 </html>
