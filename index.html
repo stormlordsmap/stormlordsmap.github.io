@@ -97,7 +97,7 @@
 		//if(confirm("ADD MARKER HERE=?")){
 		//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
 		//	var txt = prompt("Text")
-			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [32, 74]})
+			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [1, 1]})
 			mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
 			var circle = L.circle([e.latlng.lat, e.latlng.lng],20, {color: col, fillColor:col,fillOpacity:1}).addTo(map)
 			circles.push(circle)
@@ -117,7 +117,7 @@
 		//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
 		//	var txt = prompt("Text")
 			col2 = prompt("Dot color")
-			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [32, 74]})
+			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [1, 1]})
 			mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
 			var circle = L.circle([e.latlng.lat, e.latlng.lng],(parseFloat(prompt("Dot radius"))*10000), {color: col2, fillColor:col2,fillOpacity:0.75}).addTo(map)
 			circles.push(circle)
