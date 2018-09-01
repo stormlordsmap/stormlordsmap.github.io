@@ -13,9 +13,8 @@
 
 		  
 		/*This function gives you Lat Long of what you click on */
-		/*
+		
 		function onMapClick(e) {
-			if(confirm("ADD MARKER HERE?")){
 				var name = prompt("Name")
                 var type = prompt("Type")
 				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: eval(type+"_"+4)}).bindPopup("txt");
@@ -24,12 +23,10 @@
         
          //       circle = L.circle([e.latlng.lat, e.latlng.lng],(1), {color: "#ffcc00", fillColor:"#ffcc00",fillOpacity:0.75}).addTo(map)
 		//		$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+"],\n")
-	
-			}
 
 		};
 		map.on('click', onMapClick);
-        */
+        
         
 		
 		//Loop through the keep markers (declared on marker.js) array and add markers to layer
