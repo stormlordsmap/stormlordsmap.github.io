@@ -23,21 +23,14 @@ var Town_4 = new L.icon({iconUrl: 'img/marker/town.png',iconSize: [36, 36]})
 var Town_3 = new L.icon({iconUrl: 'img/marker/town.png',iconSize: [18, 18]})
 var Town_2 = new L.icon({iconUrl: 'img/marker/town.png',iconSize: [9, 9]})
 
-
-
-
-
-
-
-
-
-
 var keeps = [
 [-69.09993967425088,-48.076171875,"Blackhaven + vilage"],
 [-31.05293398570514,90.3515625,"Storm's End + village"],
 [-63.35212928507874,-3.251953125,"Gallowsgrey + village"],
 [-71.44117085172384,13.095703125,"Stonehelm +village"],
 [-70.31873847853122,63.28125,"Honeyhollow"],
+[-56.218923189166624,-19.599609375,"Broad Arch + village"],
+
 ]
 
 var towns = [
@@ -93,5 +86,12 @@ var villages = [
 [-73.67726447634907,58.00781249999999,"Horpe Village"],
 [-69.09993967425088,49.5703125,"Horpe Village"],
 [-65.98227002980873,78.134765625,"Horpe Village"],
+
+[-53.90433815627469,-29.970703124999996,"Staedmon Village"],
+[-54.00776876193477,-9.404296875,"Staedmon Village"],
+[-52.16045455774704,1.0546875,"Staedmon Village"],
+[-57.938183012205315,-37.6171875,"Staedmon Village"],
+[-60.02095215374802,-44.12109374999999,"Staedmon Village"],
+
 
 ]
