@@ -96,4 +96,6 @@ var villages = [
 [-57.938183012205315,-37.6171875,"Staedmon Village"],
 [-60.02095215374802,-44.12109374999999,"Staedmon Village"],
 
+[-77.157162522661,102.65625,"Whitehead Village"],
+
 ]
