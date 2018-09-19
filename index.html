@@ -26,6 +26,7 @@
 	<button type="button" class="btn btn-block" style="background-color:#daed0e" onClick="toggle('village')">Toggle Villages</button>
 	<button type="button" class="btn btn-block" style="background-color:#daed0e" onClick="toggle('resource')">Toggle Resources</button>
 -->
+	<button id="btn-line" type="button" class="btn btn-block btn-default" data-drawing="no" style="color:#000" onClick="modmap()">Modmap</button>
 	<button id="btn-line" type="button" class="btn btn-block btn-default" data-drawing="no" style="color:#000" onClick="add_line()">Draw Line</button>
 	<button id="btn-point" type="button" class="btn btn-block btn-default" data-drawing="no" style="color:#000" onClick="add_point()">Draw point</button>
 	<button id="btn-clear" type="button" class="btn btn-block btn-default" style="color:#000" onClick="clear()">Clear drawings</button>  
@@ -35,6 +36,7 @@
 </body>
   <script src="js/init_map.js"></script>  
   <script>
+  
 	var polylines = []
 	var circles = []
 	var col = ""
@@ -98,7 +100,7 @@
 		//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
 		//	var txt = prompt("Text")
 			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [1, 1]})
-			mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
+			mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon}).bindPopup(txt);
 			var circle = L.circle([e.latlng.lat, e.latlng.lng],20, {color: col, fillColor:col,fillOpacity:1}).addTo(map)
 			circles.push(circle)
 			map.addLayer(mark)
@@ -130,5 +132,19 @@
 			lin.prop('disabled',false)
 			map.off('click',addPoint);	
 	};	
+    
+    
+    function modmap(){
+        $.ajax({
+            url :   'http://stormlordsmap.epizy.com/controller.php',
+            data: {passwd:prompt("Enter the mod password")},
+            dataType: "json",
+            method:"post",
+            success:function(data){
+                        if(data.status == "OK") alert("PASSWORD OK");
+                        else alert("PASSWORD KO")
+                    }
+        })
+    }
   </script>
 </html>

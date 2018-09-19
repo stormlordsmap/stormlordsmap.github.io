@@ -13,7 +13,7 @@
 
 		  
 		/*This function gives you Lat Long of what you click on */
-		
+		/*
 		function onMapClick(e) {
 				var name = prompt("Name")
                 var type = prompt("Type")
@@ -26,7 +26,7 @@
 
 		};
 		map.on('click', onMapClick);
-        
+        */
         
 		
 		//Loop through the keep markers (declared on marker.js) array and add markers to layer
@@ -53,9 +53,9 @@
             var lon = keeps[i][1]; 
             var popupText = keeps[i][2];
             
-            var marker_4 = new L.Marker([lat, lon], {icon: Keep_4, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-            var marker_3 = new L.Marker([lat, lon], {icon: Keep_3, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-            var marker_2 = new L.Marker([lat, lon], {icon: Keep_2, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+            var marker_4 = new L.Marker([lat, lon], {icon: Keep_4, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+            var marker_3 = new L.Marker([lat, lon], {icon: Keep_3, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+            var marker_2 = new L.Marker([lat, lon], {icon: Keep_2, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
            
 			arrKeeps_4.push(marker_4)
             arrKeeps_3.push(marker_3)
@@ -72,9 +72,9 @@
             var lon = towns[i][1]; 
             var popupText = towns[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: Town_4, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-             var marker_3 = new L.Marker([lat, lon], {icon: Town_3, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-             var marker_2 = new L.Marker([lat, lon], {icon: Town_2, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_4 = new L.Marker([lat, lon], {icon: Town_4, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_3 = new L.Marker([lat, lon], {icon: Town_3, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_2 = new L.Marker([lat, lon], {icon: Town_2, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
             
 			arrTowns_4.push(marker_4)
             arrTowns_3.push(marker_3)
@@ -92,9 +92,9 @@
             var lon = burgs[i][1]; 
             var popupText = burgs[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: Burg_4, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-             var marker_3 = new L.Marker([lat, lon], {icon: Burg_3, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-             var marker_2 = new L.Marker([lat, lon], {icon: Burg_2, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_4 = new L.Marker([lat, lon], {icon: Burg_4, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_3 = new L.Marker([lat, lon], {icon: Burg_3, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_2 = new L.Marker([lat, lon], {icon: Burg_2, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
             
 			arrBurgs_4.push(marker_4)
             arrBurgs_3.push(marker_3)
@@ -112,9 +112,9 @@
             var lon = villages[i][1]; 
             var popupText = villages[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: Village_4, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-             var marker_3 = new L.Marker([lat, lon], {icon: Village_3, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-             var marker_2 = new L.Marker([lat, lon], {icon: Village_2, title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_4 = new L.Marker([lat, lon], {icon: Village_4, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_3 = new L.Marker([lat, lon], {icon: Village_3, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_2 = new L.Marker([lat, lon], {icon: Village_2, title:popupText}).bindPopup(popupText);//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
             
 			arrVillages_4.push(marker_4)
             arrVillages_3.push(marker_3)
